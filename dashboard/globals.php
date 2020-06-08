@@ -1,0 +1,7 @@
+<?php
+	$listOfCountries = array();
+	$currentContinents = '';
+
+
+
+?>
