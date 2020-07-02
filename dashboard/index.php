@@ -3,7 +3,7 @@
 	require 'globals.php';
 	require 'continents.php';
 	require 'total.php';
-	require 'countries.php';
+	require_once 'countries.php';
 ?>
 <html lang="en">
 	<head>
@@ -12,10 +12,12 @@
 		<title>Covid-19</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/styles.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+		<script src="js/scripts.js"></script>
 		<style>
 			.container {
 				max-width: 100%;
@@ -45,15 +47,13 @@
 			<div class="row">
 				<div class="col-3 bg-dark mb-3 h-scroll" >
 					<?php 
-						//$_SERVER['DOCUMENT_ROOT']. 
 						loadContinents();
 					?>
 				</div>
-				<div class="col-9">
+				<div class="col-9 list-of-countries">
 					<?php
 						loadCountries();
-					?>
-				
+					?>				
 				</div>
 			</div>
 		

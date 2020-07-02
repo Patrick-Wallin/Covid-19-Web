@@ -1,6 +1,10 @@
 <?php	
+	if(!isset($_SESSION)) {
+		session_start();
+	}
+	
 	function loadContinents() {
-		$GLOBALS['listOfCountries'] = array();
+		$_SESSION['listOfCountries'] = array();
 		
 		$api_url = 'https://corona.lmao.ninja/v2/continents?yesterday=false&sort=cases';
 
@@ -10,10 +14,12 @@
 		$cnt = 1;
 		
 		foreach ($continents_data as $data) {
-			if($cnt == 1) $GLOBALS['currentContinents'] = $data->continent;
+			if($cnt == 1) $_SESSION['currentContinents'] = $data->continent;
 			echo "<div class='card'>";
 			echo "<div class='card-body' style='margin-left:10px; margin-right:10px;'>";
+			echo "<a id='continent-card-href' href='updateglobals.php?currentContinents=" . $data->continent . "' class='stretched-link'>";
 			echo "<h4 class='card-title'>" . $data->continent . "</h4>";
+			echo "</a>";
 			echo "<div style='margin-left:10px;margin-right:10px;'>";
 			echo "<div class='row'>";
 			echo "<div class='col-sm-6'>Total Cases:</div>";
@@ -37,7 +43,7 @@
 			echo "<br>";
 		
 			$cnt++;
-			$GLOBALS['listOfCountries'][$data->continent] = $data->countries;
+			$_SESSION['listOfCountries'][$data->continent] = $data->countries;
 			
 			//array_push($GLOBALS['listOfCountries'], array($data->continent => $data->countries));
 		}

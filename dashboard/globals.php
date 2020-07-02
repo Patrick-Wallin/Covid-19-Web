@@ -1,7 +1,7 @@
 <?php
-	$listOfCountries = array();
-	$currentContinents = '';
+	session_start();
 
-
+	$_SESSION['listOfCountries'] = array();
+	$_SESSION['currentContinents'] = '';
 
 ?>
